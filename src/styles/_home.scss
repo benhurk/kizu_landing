@@ -1,0 +1,115 @@
+@use './global/' as global;
+
+
+    .bg-img {
+        max-width: 100%;
+    }
+
+    .p-hero__thumb {
+        position: absolute;
+        top: calc((global.$footerH + 1.8rem) * -1);
+        left: 1.8rem;
+        transform: translate(0, -100%);
+        text-align: center;
+
+        &-cap {
+            font-size: 2.2rem;
+            font-family: global.$font-main;
+            color: global.$color-white;
+            line-height: 1;
+            letter-spacing: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        &-figure {
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid global.$color-white;
+            width: 18.2rem;
+            height: 18.2rem;
+            background-image: url(../../dist/img/home/thumb_movie.jpg);
+            background-size: cover;
+
+            @include global.colorFadeOnHover($radius: 50%, $position: inherit);
+        }
+    }
+
+    .p-hero__brand {
+        position: absolute;
+        right: 1.8rem;
+        top: calc((global.$footerH + 1.8rem) * -1);
+        transform: translate(0, -100%);
+        width: 36.2rem;
+        margin-left: auto;
+        text-align: center;
+
+        &-link {
+            fill: global.$color-white;
+            transition: fill 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+            text-decoration: none;
+
+            &:hover {
+                fill: global.$color-red;
+                transition: fill 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+            }
+        }
+
+        &-cap {
+            color: global.$color-white;
+            font-family: global.$font-main;
+            font-size: 2.2rem;
+            letter-spacing: 0.5rem;
+            line-height: 1;
+        }
+
+        &-footer {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 4.5rem;
+            }
+        }
+
+        &-copy {
+            color: global.$color-white;
+            font-family: global.$font-main;
+            width: 100%;
+        }
+    }
+
+    .p-hero__movie {
+        &-video {
+            width: 100%;
+            height: 200%;
+            position: absolute;
+            overflow: hidden;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+
+            iframe {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: none;
+            }
+        }
+
+        @include global.colorFadeOnHover();
+
+        &::after {
+            content: "";
+            width: 10rem;
+            height: 10rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url(../../dist/img/home/btn_play.png) no-repeat center/contain;
+            z-index: 1;
+        }
+    }

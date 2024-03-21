@@ -1,0 +1,114 @@
+@use './global/' as global;
+@use 'home';
+@use 'news';
+
+.l-header {
+    &__brand {
+        width: 21rem;
+        margin: 0 auto 5rem;
+
+        &-svg {
+            fill: global.$color-red;
+        }
+    }
+
+    .l-nav {
+        &__link {
+            color: global.$color-black;
+            font-family: global.$font-main;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            &-main {
+                padding-top: 0.5rem;
+            }
+
+            &-sub {
+                font-family: global.$font-jp;
+                font-size: 1rem;
+                letter-spacing: 0.05rem;
+                margin-top: 0.25rem;
+                padding-bottom: 0.5rem;
+            }
+
+            &:hover {
+                color: global.$color-white;
+            }
+        }
+
+        &__list {
+            list-style: none;
+
+            &-item {
+                margin-top: 1.15rem;
+
+                &:first-of-type {
+                    margin-top: 0;
+                    padding-top: 0;
+                }
+
+                &:hover {
+                    background-color: global.$color-black;
+                }
+
+                &__social {
+                    margin-top: 2rem;
+
+                    a {
+                        color: global.$color-black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.l-footer {
+    background-color: global.$color-black;
+    color: global.$color-white;
+    font-family: global.$font-main;
+
+    a {
+        color: global.$color-white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__title {
+        font-weight: 400;
+        letter-spacing: 0.5rem;
+        margin-right: 2rem;
+        font-size: 1.5rem;
+    }
+
+    &__news {
+        display: flex;
+        letter-spacing: 0.15rem;
+
+        &-link {
+            display: flex;
+            align-items: center;
+        }
+
+        &-date {
+            font-size: 1.3rem;
+            padding: 0.3rem 2rem 0;
+            font-weight: 500;
+        }
+
+        &-title {
+            padding: 0.2rem 2rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+    }
+
+    &__privacy {
+        letter-spacing: 0.1rem;
+        padding-left: 3rem;
+    }
+}
