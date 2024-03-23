@@ -64,6 +64,133 @@
     }
 }
 
+.p-header {
+    color: global.$color-white;
+
+    &::before {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: global.$color-black;
+        transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    .p-title {
+        z-index: 1;
+        display: block;
+        position: relative;
+        top: -0.5rem;
+
+        &-main {
+            display: block;
+            font-size: 5.5rem;
+            font-weight: 400;
+            text-align: center;
+            letter-spacing: 2.5rem;
+            left: 0.2em;
+        }
+
+        &-sub {
+            display: block;
+            width: fit-content;
+            position: relative;
+            margin: 1rem auto 0;
+            font-size: 1.4rem;
+            font-family: global.$font-jp;
+            letter-spacing: 0.1rem;
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+}
+
+.p-inner__lead, .p-inner__description {
+    color: global.$color-white;
+    font-size: 2rem;
+    line-height: 2.3;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+}
+
+.p-inner__description {
+    margin-top: 6.8rem;
+}
+
+.p-footer {
+    background-color: global.$color-white;
+    position: relative;
+    border-top: 0.1rem solid global.$color-black;
+    border-left: 0.1rem solid global.$color-black;
+
+    &__pagetop {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        padding: 2rem 0;
+        cursor: pointer;
+        color: global.$color-black;
+
+        &-btn {
+            min-width: 8rem;
+            padding-top: 2.5rem;
+            left: 0.2em;
+            font-size: 1.6rem;
+            letter-spacing: 0.3rem;
+            text-align: center;
+            color: inherit;
+            position: relative;
+
+            &::after {
+                content: "";
+                @include global.arrowBtn("up", global.$color-black);
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            &:hover {
+                color: global.$color-red;
+
+                &::after {
+                    border-bottom: 1.2rem solid global.$color-red;
+                }
+            }
+        }
+    }
+
+    &__brand {
+        width: 11rem;
+        margin: 0 auto;
+
+        &-link {
+            fill: global.$color-black;
+            transition: fill 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+
+            &:hover {
+                fill: global.$color-red;
+                transition: fill 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+            }
+        }
+    }
+
+    &__copy {
+        margin-top: 3rem;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
 .l-footer {
     background-color: global.$color-black;
     color: global.$color-white;
