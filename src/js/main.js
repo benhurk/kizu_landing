@@ -15,7 +15,7 @@ function contentTabHide() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function paginationNav() {
     const navBtn = document.querySelectorAll('.p-inner__pagination a');
     const nextBtn = document.querySelector('.p-inner__pagination-next');
     const prevBtn = document.querySelector('.p-inner__pagination-prev');
@@ -25,14 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const el = e.target;
             let targetTab;
 
-            //TAB NUM
+            //Tab numbers buttons
             if (el.classList.contains("p-inner__pagination-link")) {
                 targetTab = document.querySelector(`[data-tab-id="${el.dataset.navLink}"]`);
                 contentTabHide();
                 el.classList.add("active");
             }
 
-            //TAB NEXT
+            //Next tab button
             if (el.classList.contains("p-inner__pagination-next")) {
                 const currentTab = document.querySelector('[data-tab-id].active');
                 const targetNavItem = document.querySelector(`[data-nav-link="${parseInt(currentTab.dataset.tabId) + 1}"]`);
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 targetNavItem.classList.add("active");
             }
 
-            //TAB PREVIOUS
+            //Previous tab button
             if (el.classList.contains("p-inner__pagination-prev")) {
                 const currentTab = document.querySelector('[data-tab-id].active');
                 const targetNavItem = document.querySelector(`[data-nav-link="${parseInt(currentTab.dataset.tabId) - 1}"]`);
@@ -54,9 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 targetNavItem.classList.add("active");
             }
 
+            //
             scrollToTop();
             targetTab.classList.add("active");
 
+            //Toggle next and prev buttons
             if (parseInt(targetTab.dataset.tabId) == 3) {
                 nextBtn.style.display = "none";
             } else {
@@ -68,8 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 prevBtn.style.display = "block";
             }
-
-            console.log(targetTab.dataset.tabId);
         })
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    paginationNav();
 })

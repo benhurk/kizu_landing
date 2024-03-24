@@ -1,6 +1,7 @@
 @use './global/' as global;
 @use 'home';
 @use 'news';
+@use 'char';
 
 .l-header {
     &__brand {
@@ -67,8 +68,7 @@
 .p-header {
     color: global.$color-white;
 
-    &::before {
-        content: "";
+    &__bg {
         display: block;
         height: 100%;
         width: 100%;

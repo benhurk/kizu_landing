@@ -34,31 +34,31 @@
     }
 }
 
-@mixin arrowBtn($direction, $color) {
-    width: 1.2rem;
-    height: 1.4rem;
+@mixin arrowBtn($direction, $color, $width: 1.2rem, $height: 1.4rem) {
+    width: $width;
+    height: $height;
 
     @if $direction == "up" {
-        border-bottom: 1.2rem solid $color;
-        border-left: 0.7rem solid transparent;
-        border-right: 0.7rem solid transparent;
+        border-bottom: $width solid $color;
+        border-left: calc($height / 2) solid transparent;
+        border-right: calc($height / 2) solid transparent;
     }
 
     @if $direction == "down" {
-        border-top: 1.2rem solid $color;
-        border-left: 0.7rem solid transparent;
-        border-right: 0.7rem solid transparent;
+        border-top: $width solid $color;
+        border-left: calc($height / 2) solid transparent;
+        border-right: calc($height / 2) solid transparent;
     }
 
     @if $direction == "left" {
-        border-right: 1.2rem solid $color;
-        border-top: 0.7rem solid transparent;
-        border-bottom: 0.7rem solid transparent;
+        border-right: $width solid $color;
+        border-top: calc($height / 2) solid transparent;
+        border-bottom: calc($height / 2) solid transparent;
     }
 
     @if $direction == "right" {
-        border-left: 1.2rem solid $color;
-        border-top: 0.7rem solid transparent;
-        border-bottom: 0.7rem solid transparent;
+        border-left: $width solid $color;
+        border-top: calc($height / 2) solid transparent;
+        border-bottom: calc($height / 2) solid transparent;
     }
 }
