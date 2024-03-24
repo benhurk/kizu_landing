@@ -1,0 +1,112 @@
+@use './global/' as global;
+
+.p-char {
+    &__bg {
+        width: calc(100% - global.$headerW);
+        height: calc(100vh - global.$footerH);
+        position: fixed;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: global.$color-black;
+            opacity: 0.3;
+        }
+    }
+
+    &__nav {
+        position: fixed;
+        top: global.$headerSectionH;
+        right: 5rem;
+    
+        a {
+            color: global.$color-white;
+            text-decoration: none;
+        }
+    
+        &-item {
+            position: relative;
+            padding-left: 1.8rem;
+            
+            &:not(:first-of-type) {
+                margin-top: 1.55rem;
+            }
+
+            &.active {
+                &::before {
+                    content: "";
+                    @include global.arrowBtn("right", global.$color-white, $width: 1rem, $height: 1rem);
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    line-height: 1;
+                    transform: translate(0, -50%);
+                }
+            }
+        }
+    }
+
+    &__inner {
+        color: global.$color-white;
+        padding-right: 35rem;
+        padding-bottom: calc(100vh - 70rem);
+
+        .p-char__data {
+            padding: 9rem 0;
+
+            &-name {
+                display: flex;
+                align-items: center;
+
+                &__main {
+                    flex-shrink: 0;
+                    font-size: 4.4rem;
+                    line-height: 1.2;
+                    letter-spacing: 0.25rem;
+                    font-weight: 400;
+                }
+
+                &__sub {
+                    font-size: 2.2rem;
+                    top: 0.2rem;
+                    letter-spacing: 0.25rem;
+                    font-family: global.$font-jp;
+                    margin-left: 3rem;
+                }
+            }
+
+            &-cv {
+                font-size: 1.6rem;
+                margin-top: 2rem;
+                letter-spacing: 0.2rem;
+                position: relative;
+
+                &::before {
+                    content: "DUB:";
+                    letter-spacing: 0.4rem;
+                }
+
+                &::after {
+                    letter-spacing: 0.4rem;
+                    font-size: global.$font-jp;
+                }
+            }
+
+            &-description {
+                margin-top: 2rem;
+                font-size: 1.6rem;
+                line-height: 1.5;
+                letter-spacing: 0.1rem;
+                font-weight: 300;
+            }
+        }
+    }
+}
