@@ -74,6 +74,35 @@ function paginationNav() {
     }
 }
 
+function layoutAnim() {
+    const text = new SplitType('.p-text');
+    let tl = gsap.timeline();
+
+    tl.to('.p-header__bg', {
+        width: "100%",
+        duration: 0.1
+    });
+
+    tl.to('.p-title .char', {
+        opacity: '1',
+        stagger: 0.025,
+        delay: 0.3
+    });
+
+    tl.to('.anim_type .char', {
+        opacity: '1',
+        stagger: 0.02,
+        duration: 0.1
+    });
+    
+    tl.to('.anim_random .char', {
+        opacity: '1',
+        delay: "random(0, 0.8)",
+        duration: 0.6
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    layoutAnim();
     paginationNav();
 })

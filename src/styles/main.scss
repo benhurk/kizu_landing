@@ -67,12 +67,14 @@
 
 .p-header {
     color: global.$color-white;
+    background: global.$color-red;
 
     &__bg {
         display: block;
         height: 100%;
-        width: 100%;
+        width: 0;
         position: absolute;
+        display: block;
         top: 0;
         left: 0;
         background: global.$color-black;
@@ -84,12 +86,12 @@
         display: block;
         position: relative;
         top: -0.5rem;
+        text-align: center;
 
         &-main {
             display: block;
             font-size: 5.5rem;
             font-weight: 400;
-            text-align: center;
             letter-spacing: 2.5rem;
             left: 0.2em;
         }
@@ -103,22 +105,27 @@
             font-family: global.$font-jp;
             letter-spacing: 0.1rem;
             font-weight: 400;
-            text-align: center;
         }
     }
 }
 
-.p-inner__lead, .p-inner__description {
-    color: global.$color-white;
-    font-size: 2rem;
-    line-height: 2.3;
-    text-align: center;
-    font-weight: 300;
-    letter-spacing: 0.3rem;
+.p-inner {
+    &__lead, &__description {
+        color: global.$color-white;
+        font-size: 2rem;
+        line-height: 2.3;
+        text-align: center;
+        font-weight: 300;
+        letter-spacing: 0.3rem;
+    }
+
+    &__description {
+        margin-top: 6.8rem;
+    }
 }
 
-.p-inner__description {
-    margin-top: 6.8rem;
+.char {
+    opacity: 0;
 }
 
 .p-footer {
